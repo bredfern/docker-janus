@@ -103,13 +103,6 @@ LABEL org.label-schema.description="This provides a Janus Gateway Server for Web
   --name <container-name> \
   <image-name>" \
   org.label-schema.docker.debug="docker exec -it <container-name> bash" \
-  org.label-schema.name="olp-janus" \
-  org.label-schema.vcs-url="https://gitlab.drakephx.com/development/nextgen/olp-janus/" \
-  org.label-schema.vendor="Kryterion" \
-  org.label-schema.schema-version="1.0.0" \
-  org.label-schema.build-date=$BUILD_DATE \
-  org.label-schema.vcs-ref=$VCS_REF \
-  com.kryterion.olp-janus.janus-version=$JANUS_VERSION
 
 ENTRYPOINT ["/opt/janus/bin/janus"]
 CMD ["--stun-server=stun.l.google.com:19302"]
