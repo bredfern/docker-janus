@@ -7,7 +7,7 @@
 # Build
 From within the project folder run this command:
 
-    ./docker build --tag=janus
+    docker build --tag=janus .
 
 
 ## Ports

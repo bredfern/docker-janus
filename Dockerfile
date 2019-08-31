@@ -91,18 +91,6 @@ EXPOSE 7088 8088 8188 7089 8089 8189
 
 ARG BUILD_DATE
 ARG VCS_REF
-LABEL org.label-schema.description="This provides a Janus Gateway Server for Webrtc" \
-  org.label-schema.docker.cmd="\
-  docker run -d \
-  -p 7088:7088 \
-  -p 7089:7089 \
-  -p 8088:8088 \
-  -p 8089:8089 \
-  -p 8188:8188 \
-  -p 8189:8189 \
-  --name <container-name> \
-  <image-name>" \
-  org.label-schema.docker.debug="docker exec -it <container-name> bash" \
 
 ENTRYPOINT ["/opt/janus/bin/janus"]
 CMD ["--stun-server=stun.l.google.com:19302"]
