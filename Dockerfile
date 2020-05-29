@@ -4,7 +4,7 @@
 # FROM debian:${CODE_VERSION}
 
 # set base image debian jessie
-FROM debian:9
+FROM debian:10
 
 WORKDIR /work
 
@@ -35,12 +35,12 @@ RUN apt-get update -y \
   && rm -rf /var/lib/apt/lists/*
 
 RUN cd /work \
-  && wget --no-check-certificate https://nice.freedesktop.org/releases/libnice-0.1.15.tar.gz \
-  && tar xvf libnice-0.1.15.tar.gz \
-  && cd libnice-0.1.15 \
+  && wget --no-check-certificate https://libnice.freedesktop.org/releases/libnice-0.1.17.tar.gz \
+  && tar xvf libnice-0.1.17.tar.gz \
+  && cd libnice-0.1.17 \
   && ./configure --prefix=/usr && make && sudo make install \
   && cd .. \
-  && rm -rf libnice-0.1.15
+  && rm -rf libnice-0.1.17
 
 RUN cd /work \
   && git clone https://github.com/cisco/libsrtp.git \
@@ -64,7 +64,7 @@ RUN wget https://github.com/sctplab/usrsctp/archive/0.9.3.0.tar.gz \
 
 RUN git clone https://github.com/warmcat/libwebsockets.git \
   && cd libwebsockets \
-  && git checkout v2.1.0 \
+  && git checkout v4.0-stable \
   && mkdir build \
   && cd build \
   && cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .. \
@@ -73,7 +73,7 @@ RUN git clone https://github.com/warmcat/libwebsockets.git \
   && cd ../../ \
   && rm -rf libwebsockets
 
-ARG JANUS_VERSION=0.6.1
+ARG JANUS_VERSION=0.9.5
 RUN wget -O janus-gateway.tar.gz https://github.com/meetecho/janus-gateway/archive/v${JANUS_VERSION}.tar.gz \
   && mkdir janus-gateway \
   && tar xvf janus-gateway.tar.gz -C janus-gateway --strip-components 1 \
