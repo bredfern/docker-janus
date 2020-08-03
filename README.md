@@ -2,7 +2,7 @@
 
 -   This image contains the meetecho janus webrtc gateway  ([https://github.com/meetecho/janus-gateway](https://github.com/meetecho/janus-gateway))
 
--   It uses the google stun server in the default run command
+-   It uses the google stun server in the default run command  which is not what you would likely want for production or your own qa tiers tere are a few issues to be aware of, [take a look at the presentation](https://www.januscon.it/2019/talk.php?t=docker) for different issues using Janus with docker in a production environment.
 
 # Build
 From within the project folder run this command:
